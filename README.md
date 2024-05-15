@@ -9,7 +9,7 @@
 ## Run
 
 ```
-cd ~/zerojudge/OnlineJudgeFE/ && export TARGET=http://oj-backend:8000/api/judge_server_heartbeat && export NODE_OPTIONS=--openssl-legacy-provider && npm run dev
+cd ~/zerojudge/OnlineJudgeFE/ && export TARGET=http://localhost:8020 && export NODE_OPTIONS=--openssl-legacy-provider && npm run dev
 ```
 
 ## Install
