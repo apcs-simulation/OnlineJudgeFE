@@ -6,17 +6,13 @@
 [![element-ui](https://img.shields.io/badge/element-2.0.9-blue.svg?style=flat-square)](https://github.com/ElemeFE/element)
 [![Build Status](https://travis-ci.org/QingdaoU/OnlineJudgeFE.svg?branch=master)](https://travis-ci.org/QingdaoU/OnlineJudgeFE)
 
->### A multiple pages app built for OnlineJudge. [Demo](https://qduoj.com)
+## Run
 
-## Features
+```
+cd ~/zerojudge/OnlineJudgeFE/ && export TARGET=http://oj-backend:8000/api/judge_server_heartbeat && export NODE_OPTIONS=--openssl-legacy-provider && npm run dev
+```
 
-+ Webpack3 multiple pages with bundle size optimization
-+ Easy use simditor & Nice codemirror editor
-+ Amazing charting and visualization(echarts)
-+ User-friendly operation
-+ Quite beautiful：)
-
-## Get Started
+## Install
 
 Install nodejs **v8.12.0** first.
 
