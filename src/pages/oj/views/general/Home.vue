@@ -1,6 +1,44 @@
 <template>
   <Row type="flex" justify="space-around">
     <Col :span="22">
+      <div class="apcs-home">
+        <div class="apcs-header">
+          <img class="apcs-logo" src="/static/logo.png" alt="" />
+          <div>
+            <h1>APCS 模擬測驗系統</h1>
+            <p>
+              "每個月最後一個星期六" 都會有一場固定的 APCS 模擬賽，時間皆為晚上
+              20:00 - 22:30 共 2.5
+              小時，希望大家能夠持續參與，給予免費擔任出題者的出題團隊們一些小小的鼓勵！支持我們繼續做下去！
+            </p>
+            <div class="apcs-social-container">
+              <a
+                class="apcs-social discord"
+                href="https://discord.gg/RnhATqeMtd"
+                target="_blank"
+                >Discord</a
+              >
+              <a
+                class="apcs-social"
+                href="https://www.instagram.com/apcs.simulation/"
+                target="_blank"
+                >Instagram</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="ivu-card apcs-countdown-container">
+          <div>
+            <h3>下次模擬測驗</h3>
+            <div class="apcs-countdown simulation"></div>
+          </div>
+          <div>
+            <h3>下次 APCS 測驗</h3>
+            <div class="apcs-countdown apcs"></div>
+          </div>
+        </div>
+      </div>
+
       <panel shadow v-if="contests.length" class="contest">
         <div slot="title">
           <Button type="text" class="contest-title" @click="goContest">{{
@@ -44,52 +82,14 @@
           </CarouselItem>
         </Carousel>
       </panel>
-      <div class="apcs-home">
-        <div class="apcs-header">
-          <img class="apcs-logo" src="/static/logo.png" alt="" />
-          <div>
-            <h1>APCS 模擬測驗系統</h1>
-            <p>
-              "每個月最後一個星期六" 都會有一場固定的 APCS 模擬賽，時間皆為晚上
-              20:00 - 22:30 共 2.5
-              小時，希望大家能夠持續參與，給予免費擔任出題者的出題團隊們一些小小的鼓勵！支持我們繼續做下去！
-            </p>
-            <div class="apcs-social-container">
-              <a
-                class="apcs-social discord"
-                href="https://discord.gg/RnhATqeMtd"
-                target="_blank"
-                >Discord</a
-              >
-              <a
-                class="apcs-social"
-                href="https://www.instagram.com/apcs.simulation/"
-                target="_blank"
-                >Instagram</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="ivu-card apcs-countdown-container">
-          <div>
-            <h3>下次模擬測驗</h3>
-            <div class="apcs-countdown simulation"></div>
-          </div>
-          <div>
-            <h3>下次模擬測驗</h3>
-            <div class="apcs-countdown apcs"></div>
-          </div>
-        </div>
-      </div>
       <Announcements class="announcement"></Announcements>
     </Col>
   </Row>
 </template>
 <style>
-
-.apcs-social.discord{
-background-color:#5d6af2;
-	}
+.apcs-social.discord {
+  background-color: #5d6af2;
+}
 .apcs-home {
   margin: 1rem auto;
 }
@@ -101,7 +101,7 @@ background-color:#5d6af2;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  margin-block:2rem;
+  margin-block: 2rem;
 }
 .apcs-header p {
   max-width: 30rem;
@@ -117,7 +117,7 @@ background-color:#5d6af2;
 .apcs-social {
   padding: 7px 20px;
   border-radius: 40px;
-  background-color: rgb(22, 119, 255);
+  background-color: rgb(249, 96, 182);
   color: #fff;
   box-shadow: rgba(5, 145, 255, 0.1) 0px 2px 0px 0px;
   margin-right: 0.5rem;
@@ -132,7 +132,7 @@ background-color:#5d6af2;
   align-items: center;
   text-align: center;
   gap: 5rem;
-  padding-top:2rem;
+  padding-top: 2rem;
 }
 .apcs-countdown {
   display: flex;
@@ -145,6 +145,9 @@ background-color:#5d6af2;
 .apcs-countdown > div {
   font-weight: 600;
   font-size: 2em;
+}
+.apcs-countdown-container h3 {
+  margin-bottom: 0.5rem;
 }
 .caption {
   font-size: 1rem;
