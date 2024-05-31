@@ -127,7 +127,7 @@
         this.$emit('update:value', newCode)
       },
       onLangChange (newVal) {
-        this.editor.setOption('mode', this.mode[newVal])
+		   this.editor.setOption('mode', this.mode[newVal])
         this.$emit('changeLang', newVal)
       },
       onThemeChange (newTheme) {

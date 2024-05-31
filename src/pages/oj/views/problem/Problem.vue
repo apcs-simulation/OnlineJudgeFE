@@ -200,6 +200,7 @@
 </template>
 
 <script>
+  import Cookies from 'js-cookie'
   import {mapGetters, mapActions} from 'vuex'
   import {types} from '../../../../store'
   import CodeMirror from '@oj/components/CodeMirror.vue'
@@ -273,10 +274,19 @@
     },
     mounted () {
       this.$store.commit(types.CHANGE_CONTEST_ITEM_VISIBLE, {menu: false})
-      this.init()
+      this.init();
     },
     methods: {
       ...mapActions(['changeDomTitle']),
+      onChangeLang (newLang) {
+        if (this.problem.template[newLang]) {
+          if (this.code.trim() === '') {
+            this.code = this.problem.template[newLang]
+          }
+        }
+        this.language = newLang;
+        Cookies.set("editor-lang", newLang);
+      },
       init () {
         this.$Loading.start()
         this.contestID = this.$route.params.contestID
@@ -305,6 +315,8 @@
           if (template && template[this.language]) {
             this.code = template[this.language]
           }
+          let savedLang = Cookies.get("editor-lang");
+    if (savedLang) this.onChangeLang(savedLang);
         }, () => {
           this.$Loading.error()
         })
@@ -348,14 +360,7 @@
       handleRoute (route) {
         this.$router.push(route)
       },
-      onChangeLang (newLang) {
-        if (this.problem.template[newLang]) {
-          if (this.code.trim() === '') {
-            this.code = this.problem.template[newLang]
-          }
-        }
-        this.language = newLang
-      },
+      
       onChangeTheme (newTheme) {
         this.theme = newTheme
       },
@@ -624,4 +629,5 @@
     height: 480px;
   }
 </style>
+
 
